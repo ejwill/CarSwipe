@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('starter', ['ionic', 'firebase', 'ngCordova', 'starter.controllers',])
+angular.module('starter', ['ionic', 'firebase', 'ngCordova', 'starter.controllers'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -25,17 +25,48 @@ angular.module('starter', ['ionic', 'firebase', 'ngCordova', 'starter.controller
 .config(function($stateProvider, $urlRouterProvider) {
  
   $stateProvider
-  .state('login', {
-    url: '/',
-    templateUrl: 'templates/login.html',
-    controller: 'LoginCtrl'
+ .state('app', {
+      url: "/app",
+      abstract: true,
+      templateUrl: "templates/menu.html",
+      /*controller: 'AppCtrl'*/
+    })
+    .state('app.login', {
+    url: '/login',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/login.html',
+        controller: 'LoginCtrl'
+      }
+    }
   })
-  .state('signup', {
+    .state('app.signup', {
     url: '/signup',
-    templateUrl: 'templates/signup.html',
-    controller: 'LoginCtrl'
-  });
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/signup.html',
+        controller: 'LoginCtrl'
+      }
+    }
+  })  
+  .state('app.signin', {
+    url: '/signin',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/signin.html',
+        controller: 'LoginCtrl'
+      }
+    }
+  })
+      .state('app.home', {
+      url: "/home",
+      views: {
+        'menuContent' :{
+          templateUrl: "templates/home.html"
+        }
+      }
+    })
  
-  $urlRouterProvider.otherwise("/");
+  $urlRouterProvider.otherwise('/app/login');
  
 })

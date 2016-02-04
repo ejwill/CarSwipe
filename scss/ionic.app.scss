@@ -21,3 +21,25 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 
+.login-container {
+	display: -webkit-flex;
+	-webkit-flex-direction: column;
+	height: 100%;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f6cb3d), color-stop(100%,#f6cb3d));
+	background: -webkit-linear-gradient(top, #f6cb3d 0%,#f6cb3d 100%);
+}
+
+.login-container > .button-row img {
+	max-width: 80%;
+}
+
+.login-container > .header {
+	-webkit-flex: 4;
+	padding-top: 20px;
+}
+
+.logo {
+	max-height: 80%;
+	max-width: 80%;
+	width: auto;
+}

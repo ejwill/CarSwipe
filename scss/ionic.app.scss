@@ -25,8 +25,8 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 	display: -webkit-flex;
 	-webkit-flex-direction: column;
 	height: 100%;
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f6cb3d), color-stop(100%,#f6cb3d));
-	background: -webkit-linear-gradient(top, #f6cb3d 0%,#f6cb3d 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#206aba), color-stop(100%,#206aba));
+	background: -webkit-linear-gradient(top, #206aba 0%,#206aba 100%);
 }
 
 .login-container > .button-row img {
@@ -42,4 +42,82 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 	max-height: 80%;
 	max-width: 80%;
 	width: auto;
+}
+
+.pane {
+  background-color: #333;
+}
+ 
+.swipe-cards {
+  position: relative;
+}
+ 
+swipe-card {
+  display: none;
+  position: fixed;
+  -webkit-transform: scale(1,1);
+  left: 50%;
+  top: 50%;
+  width: 300px;
+  height: 300px;
+  margin-left: -150px;
+  margin-top: -300px;
+  box-sizing: border-box;
+  background-color: rgb(255,255,255);
+  border-radius: 4px;
+  overflow: hidden;
+  -webkit-animation-fill-mode: forwards;
+}
+ 
+swipe-card .title {
+  height: 40px;
+  padding: 5px;
+  line-height: 30px;
+  color: #444;
+}
+swipe-card .image {
+  overflow: hidden;
+  max-height: 210px;
+}
+swipe-card .button {
+  border: none;
+}
+swipe-card .image img {
+  width: 100%;
+  border-radius: 0px 0px 4px 4px;
+}
+ 
+#start-card {
+  color: #fff;
+  background-color: #30BD8A;
+  line-height: 300px;
+  word-wrap: break-word;
+  border: 6px solid #4CD68E;
+  text-align: center;
+}
+#start-card span {
+  display: inline-block;
+  line-height: 40px;
+  width: 200px;
+  font-size: 30px;
+  vertical-align: middle;
+}
+ 
+@-webkit-keyframes bounceIn {
+  0% {
+    -webkit-transform: scale(0,0);
+  }
+  70% {
+    -webkit-transform: scale(1.2,1.2);
+  }
+  100% {
+    -webkit-transform: scale(1,1);
+  }
+}
+ 
+swipe-card.pop-in-start {
+  -webkit-transform: scale(0,0);
+}
+swipe-card.pop-in {
+  -webkit-animation: bounceIn 0.4s ease-out;
 }

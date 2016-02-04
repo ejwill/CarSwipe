@@ -1,6 +1,12 @@
 {
   "name": "carswipe",
   "app_id": "",
+  "proxies": [
+    {
+      "path": "/api",
+      "proxyUrl": "https://www.kimonolabs.com/api/digje55k?apikey=3zsESu0rlVqMIdxZyJfkGDiE53haDcZ2"
+    }
+  ],
   "gulpStartupTasks": [
     "sass",
     "watch"

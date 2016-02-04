@@ -1,0 +1,31 @@
+{
+  "name": "ionic-tinder-cards",
+  "version": "2.0.0",
+  "codename": "morning-blue",
+  "homepage": "https://github.com/xchilenox/ionic-tinder-cards",
+  "description": "A tinder-style card UI for Ionic apps.",
+  "authors": [
+    "Max Lynch <max@drifty.com>",
+    "Julien Renaux <contact@julienrenaux.fr>",
+    "Rodrigo Albornoz <rodrigo.albornoz.f@gmail.com>"
+  ],
+  "main": [
+    "./dist/ion-tinder-cards.min.css",
+    "./dist/ion-tinder-cards.min.js"
+  ],
+  "keywords": [
+    "mobile",
+    "html5",
+    "ionic",
+    "cordova",
+    "phonegap",
+    "tinder",
+    "angularjs",
+    "angular"
+  ],
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "collide": ">= 1.0.0-beta.3"
+  }
+}

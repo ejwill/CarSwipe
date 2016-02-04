@@ -1,4 +1,4 @@
-angular.module('starter.controllers', [])
+angular.module('starter.controllers', ['ionic', 'ionic.contrib.ui.cards'])
 
 .controller('LoginCtrl', function($scope, $state, $cordovaFacebook, $ionicHistory) {
  
@@ -83,8 +83,41 @@ angular.module('starter.controllers', [])
  
   }
  
-};
+}
 
-
-
-});
+})
+.controller('CardsCtrl', function($scope, $http, $ionicSwipeCardDelegate) {
+  $scope.cards = [];
+ 
+  $scope.addCard = function(img, name) {
+      var newCard = {image: img, title: name};
+      newCard.id = Math.random();
+      $scope.cards.unshift(angular.extend({}, newCard));
+  };
+ 
+  $scope.addCards = function(count) {
+    $http.get('http://api.randomuser.me/?results=' + count).then(function(value) {
+      angular.forEach(value.data.results, function (v) {
+        $scope.addCard(v.user.picture.medium, v.user.email);
+      });
+      $scope.showCards = true;
+    });
+  };
+ 
+  $scope.addCards(1);
+ 
+  $scope.cardSwiped = function(index) {
+    $scope.addCards(1);
+  };
+ 
+  $scope.cardDestroyed = function(index) {
+    $scope.cards.splice(index, 1);
+  };
+ 
+})
+.controller('CardCtrl', function($scope, $ionicSwipeCardDelegate) {
+  $scope.doAnything = function() {
+    var card = $ionicSwipeCardDelegate.getSwipeableCard($scope);
+    card.swipe();
+  };
+})
